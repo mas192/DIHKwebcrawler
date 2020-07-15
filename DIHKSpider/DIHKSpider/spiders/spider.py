@@ -4,7 +4,7 @@ from scrapy.linkextractors import LinkExtractor
 
 
 class SpiderForDIHK(CrawlSpider):
-    name = "DIHK"
+    name = "dihk"
     allowed_domains = ["dihk.de"]
     start_urls = ["https://www.dihk.de/de/ueber-uns/die-ihk-organisation/dihk-deinternational-gmbh-12906"]
 

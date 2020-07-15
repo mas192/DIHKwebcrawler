@@ -43,12 +43,6 @@ class SpiderForDIHKDb(CrawlSpider):
         y = str(x)
         name = (y)
         print("Value to be inserted is ===> ", y)
-        myquery = INSERT
-        IGNORE
-        INTO
-        `DB_NAME`.
-        `TABLE_NAME`(`url_name`)
-        VALUE("'+y+'");
-        '
+        myquery = "INSERT IGNORE INTO `dihk`.`contacts` (`url_name`) VALUE("'+y+'")";
         cursor.execute(myquery)
         mydb.commit()
