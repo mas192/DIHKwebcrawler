@@ -41,8 +41,12 @@ class SpiderForDIHKDb(CrawlSpider):
     def parse_item(self, response):
         x = response.url
         y = str(x)
-        name = (y)
+        y = y.strip('://')
+        print(y)
+        value = "".join(y)
+        field_name = 'url_name'
         print("Value to be inserted is ===> ", y)
-        myquery = "INSERT IGNORE INTO `dihk`.`contacts` (`url_name`) VALUE("'+y+'")";
+        myquery = f"insert ignore into dihk.contacts ({field_name}) value({y})"
         cursor.execute(myquery)
         mydb.commit()
+        print(cursor.rowcount, "record inserted.")
