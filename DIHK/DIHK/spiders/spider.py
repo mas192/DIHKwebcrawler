@@ -1,10 +1,14 @@
 import scrapy
-
+import json
 
 class SpiderSpider(scrapy.Spider):
     name = 'spider'
     allowed_domains = ['dihk.de']
-    start_urls = ['https://www.dihk.de/de/ueber-uns/die-ihk-organisation/dihk-deinternational-gmbh-12906/']
+    start_urls = ['https://www.dihk.de/de/ueber-uns/die-ihk-organisation/dihk-deinternational-gmbh-12906/',
+                  'https://www.dihk.de/de/themen-und-positionen/recht-in-der-wirtschaft/vergaberecht',
+                  'https://www.dihk.de/de/themen-und-positionen/recht-in-der-wirtschaft/sicherheit-in-der-wirtschaft',
+                  'https://www.dihk.de/de/themen-und-positionen/wirtschaft-digital',
+                  'https://www.dihk.de/de/themen-und-positionen/recht-in-der-wirtschaft/datenschutzrecht']
 
 
 
@@ -26,7 +30,9 @@ class SpiderSpider(scrapy.Spider):
         email = response.css('a.teaser-contact__info-email::text').getall()
         peDict = dict(Phone=phone,Email=email)
         ntDict.update(peDict)
-        print((ntDict))
+        print(ntDict)
+        with open('contacts.json','a+') as f:
+            json.dump(ntDict,f)
 
 
 
