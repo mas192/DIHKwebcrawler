@@ -25,8 +25,8 @@ class SpiderSpider(scrapy.Spider):
         phone = response.css('a.teaser-contact__info-telephone::text').getall()
         email = response.css('a.teaser-contact__info-email::text').getall()
         peDict = dict(Phone=phone,Email=email)
-        print(ntDict)
-        print(peDict)
+        ntDict.update(peDict)
+        print((ntDict))
 
 
 
