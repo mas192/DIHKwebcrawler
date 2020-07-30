@@ -15,6 +15,7 @@ NEWSPIDER_MODULE = 'DIHK.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'DIHK (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:24.0) Gecko/20100101 Firefox/24.0'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
